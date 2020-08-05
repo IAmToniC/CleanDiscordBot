@@ -23,6 +23,7 @@ namespace CleanDiscordBot
         }
         public void HandleMsg(SocketMessage message)
         {
+            if (message.Author.IsBot) return;
             foreach (string thing in Comms.Keys.Where(_ => message.Content.StartsWith(_)))
             {
                 Log.Info("Handling a command...");
